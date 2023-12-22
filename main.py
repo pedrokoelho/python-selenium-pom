@@ -1,5 +1,6 @@
 import time
 from selenium import webdriver
+from utils.locators import LoginPageLocators
 
 # open browser
 driver = webdriver.Chrome()
@@ -9,8 +10,12 @@ time.sleep(5)
 driver.get('https://practicetestautomation.com/practice-test-login/')
 time.sleep(10)
 
-# Type username student into Username field
+# Instatiate the locators
+locator = LoginPageLocators()
 
+# Type username student into Username field
+input_username = driver.find_element(locator.input_username)
+input_username.send_keys('')
 # Type password Password123 into Password field
 
 # Click Submit button
