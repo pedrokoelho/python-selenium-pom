@@ -9,3 +9,5 @@ class LoginPageLocators:
         self.input_username = (By.NAME, 'username')
         self.input_password = (By.NAME, 'password')
         self.btn_submit = (By.XPATH, '//button[@class="btn"]')
+        self.txt_logged_in = (By.XPATH, '//h1[@class="post-title"]')
+        self.txt_btn_log_out = (By.XPATH, '//a[contains(text(), "Log out")]')
