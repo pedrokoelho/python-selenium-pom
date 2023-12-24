@@ -25,8 +25,8 @@ btn_sumbit = driver.find_element(*locator.btn_submit)
 btn_sumbit.click()
 
 # Verify new page URL contains practicetestautomation.com/logged-in-successfully/
-url_page = driver.current_url
-assert url_page == 'https://practicetestautomation.com/logged-in-successfully/'
+url_captured = driver.current_url
+assert url_captured == 'https://practicetestautomation.com/logged-in-successfully/'
 
 # Verify new page contains expected text ('Congratulations' or 'successfully logged in')
 text_captured = driver.find_element(*locator.txt_logged_in).text
