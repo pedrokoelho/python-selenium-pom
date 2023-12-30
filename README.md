@@ -14,3 +14,13 @@
 ## Run tests
 
 `pytest`
+
+5. mark the test
+
+> @pytest.mark.smoke
+> @pytest.mark.login
+
+## Select the tests -> Run only the tests with marker
+
+`pytest -m smoke`
+`pytest -m login`

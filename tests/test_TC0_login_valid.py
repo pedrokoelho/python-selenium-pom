@@ -1,10 +1,13 @@
+import pytest
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
 class TestLoginValid:
-
+    
+    @pytest.mark.smoke
+    @pytest.mark.login
     def test_TC0_login_valid(self):
 
         # open browser
