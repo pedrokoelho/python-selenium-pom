@@ -1,32 +1,16 @@
-## CREATE A VIRTUAL ENV
+## Install Pytest
 
-`python -m venv selenium-python-2`
+`pip install -U pytest`
 
-### Activate the virtual env in bash
+## Check Pytest Version
 
-`. selenium-python-2/Scripts/activate`
+`pytest --version`
 
-### Deactivate the virtual env in bash
+1. create tests folder
+2. create test_TC0_login_valid.py
+3. create TestLoginValid class
+4. create test_TC0_login_valid method
 
-`deactivate`
+## Run tests
 
-
-> https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
-
-
-## Install a Selenium library
-
-`pip install selenium`
-
-
-### 1. Start the session
-
-`driver = webdriver.Chrome()`
-
-### 2. Import the webdriver from Selenium
-
-`from selenium import webdriver`
-
-### 3. Navigate to page
-
-`driver.get('url')`
+`pytest`
