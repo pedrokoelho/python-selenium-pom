@@ -24,3 +24,11 @@
 
 `pytest -m smoke`
 `pytest -m login`
+
+## Register the marks
+
+> create pytest.ini
+> [pytest]
+> markers =
+>    smoke: smoke tests
+>    login: login tests

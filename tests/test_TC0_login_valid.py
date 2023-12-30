@@ -8,6 +8,7 @@ class TestLoginValid:
     
     @pytest.mark.smoke
     @pytest.mark.login
+    @pytest.mark.valid
     def test_TC0_login_valid(self):
 
         # open browser
