@@ -9,12 +9,12 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
-class TestLoginInvalid:
+class TestUsernameInvalid:
 
     @pytest.mark.smoke
     @pytest.mark.login
     @pytest.mark.invalid
-    def test_TC01_login_invalid(self):
+    def test_TC01_usrname_invalid(self):
 
         # open browser
         driver = webdriver.Chrome()
