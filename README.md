@@ -1,3 +1,7 @@
+## Activate the virtual env in bash
+
+`. selenium-python-2/Scripts/activate`
+
 ## Install Pytest
 
 `pip install -U pytest`
