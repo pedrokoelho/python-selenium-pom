@@ -38,11 +38,11 @@ class TestUsernameInvalid:
 
         # Verify error message is displayed
         banner_username_error = driver.find_element(By.XPATH, '//div[@id="error"]')
-        assert banner_username_error.is_displayed()
+        assert banner_username_error.is_displayed(), "Error message is not displayed but it's expected"
         
         # Verify error message text is Your username is invalid!
         txt_username_error = banner_username_error.text
-        assert txt_username_error == 'Your username is invalid!'
+        assert txt_username_error == 'Your username is invalid!', "Error message is not as expected"
 
 
     @pytest.mark.smoke
@@ -72,10 +72,10 @@ class TestUsernameInvalid:
 
         # Verify error message is displayed
         banner_username_error = driver.find_element(By.XPATH, '//div[@id="error"]')
-        assert banner_username_error.is_displayed()
+        assert banner_username_error.is_displayed(), "Error message is not displayed but it's expected"
 
         # Verify error message text is Your password is invalid!
         txt_username_error = banner_username_error.text
-        assert txt_username_error == 'Your password is invalid!'
+        assert txt_username_error == 'Your password is valid!', "Error message is not as expected"
 
     
