@@ -9,15 +9,23 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
+@pytest.fixture()
+def driver():
+    print("Creating chrome driver")
+    # open browser
+    my_driver = webdriver.Chrome()
+    yield my_driver
+    print("Closing chrome driver")
+    my_driver.quit()
+
 class TestUsernameInvalid:
 
     @pytest.mark.smoke
     @pytest.mark.login
     @pytest.mark.invalid
-    def test_TC01_1_username_invalid(self):
+    def test_TC01_1_username_invalid(self, driver):
 
-        # open browser
-        driver = webdriver.Chrome()
+        # open browser with the driver fixture
 
         # Open page
         driver.get('https://practicetestautomation.com/practice-test-login/')
@@ -48,10 +56,9 @@ class TestUsernameInvalid:
     @pytest.mark.smoke
     @pytest.mark.login
     @pytest.mark.invalid
-    def test_TC01_2_password_invalid(self):
+    def test_TC01_2_password_invalid(self,driver):
 
-        # open browser
-        driver = webdriver.Chrome()
+        # open browser with the driver fixture
 
         # Open page
         driver.get('https://practicetestautomation.com/practice-test-login/')
@@ -76,6 +83,6 @@ class TestUsernameInvalid:
 
         # Verify error message text is Your password is invalid!
         txt_username_error = banner_username_error.text
-        assert txt_username_error == 'Your password is in valid!', "Error message is not as expected"
+        assert txt_username_error == 'Your password is invalid!', "Error message is not as expected"
 
     
