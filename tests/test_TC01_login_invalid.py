@@ -76,6 +76,6 @@ class TestUsernameInvalid:
 
         # Verify error message text is Your password is invalid!
         txt_username_error = banner_username_error.text
-        assert txt_username_error == 'Your password is invalid!', "Error message is not as expected"
+        assert txt_username_error == 'Your password is in valid!', "Error message is not as expected"
 
     
