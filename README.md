@@ -36,3 +36,17 @@
 > markers =
 >    smoke: smoke tests
 >    login: login tests
+
+
+## Install pytest-html 
+
+`pip install pytest-html`
+
+> Create a new folder - reports
+
+## Run tests with specific marker and generate the html report 
+
+> --html=path
+> --html=folder/file_name.html
+
+`pytest -m invalid --html=reports/report.html`
