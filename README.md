@@ -50,3 +50,12 @@
 > --html=folder/file_name.html
 
 `pytest -m invalid --html=reports/report.html`
+
+## Create conftest file in tests folder
+
+> move the fixture to conftest so all the modules can use it
+
+> add the fixture - driver - to the methods parameters
+> def test_TC0_login_valid(self, driver)
+> def test_TC01_1_username_invalid(self, driver)
+> def test_TC01_2_password_invalid(self,driver)

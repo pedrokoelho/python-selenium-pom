@@ -1,31 +1,21 @@
 """
-Test Case 01
-Usename invalid 
+Tests Login Invalid
+TC01 1 Usename invalid
+TC01 2 Password invalid
 """
 
 import pytest
 import time
-from selenium import webdriver
 from selenium.webdriver.common.by import By
-
-
-@pytest.fixture()
-def driver():
-    print("Creating chrome driver")
-    # open browser
-    my_driver = webdriver.Chrome()
-    yield my_driver
-    print("Closing chrome driver")
-    my_driver.quit()
-
-class TestUsernameInvalid:
+class TestLoginInvalid:
 
     @pytest.mark.smoke
     @pytest.mark.login
     @pytest.mark.invalid
     def test_TC01_1_username_invalid(self, driver):
 
-        # open browser with the driver fixture
+        # open browser
+        # we get the driver through the driver fixture
 
         # Open page
         driver.get('https://practicetestautomation.com/practice-test-login/')
@@ -58,7 +48,8 @@ class TestUsernameInvalid:
     @pytest.mark.invalid
     def test_TC01_2_password_invalid(self,driver):
 
-        # open browser with the driver fixture
+        # open browser
+        # we get the driver through the driver fixture
 
         # Open page
         driver.get('https://practicetestautomation.com/practice-test-login/')
@@ -84,5 +75,3 @@ class TestUsernameInvalid:
         # Verify error message text is Your password is invalid!
         txt_username_error = banner_username_error.text
         assert txt_username_error == 'Your password is invalid!', "Error message is not as expected"
-
-    

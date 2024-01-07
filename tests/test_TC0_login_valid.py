@@ -1,6 +1,10 @@
+"""
+Tests Login Valid
+TC0 login valid
+"""
+
 import pytest
 import time
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
@@ -9,10 +13,10 @@ class TestLoginValid:
     @pytest.mark.smoke
     @pytest.mark.login
     @pytest.mark.valid
-    def test_TC0_login_valid(self):
+    def test_TC0_login_valid(self, driver):
 
-        # open browser
-        driver = webdriver.Chrome()
+        # open browser 
+        # we get the driver through the driver fixture
 
         # navigate to webpage
         driver.get('https://practicetestautomation.com/practice-test-login/')
