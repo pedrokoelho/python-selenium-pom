@@ -59,3 +59,10 @@
 > def test_TC0_login_valid(self, driver)
 > def test_TC01_1_username_invalid(self, driver)
 > def test_TC01_2_password_invalid(self,driver)
+
+## Install pytest-xdist to run tests in parallel
+
+`pip install pytest-xdist`
+
+> run the tests -> n=number_of_tests_to_run_in_parallel
+`pytest -n=2`
