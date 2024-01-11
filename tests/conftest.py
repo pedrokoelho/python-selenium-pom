@@ -11,7 +11,9 @@ def driver(request):
     
     if browser == "chrome":
         # open Chrome browser
-        my_driver = webdriver.Chrome()
+        options = webdriver.ChromeOptions()
+        options.add_argument("--start-maximized")
+        my_driver = webdriver.Chrome(options=options)
     elif browser == "firefox":
         # open Firefox browser
         my_driver = webdriver.Firefox()
