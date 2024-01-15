@@ -1,10 +1,12 @@
 import pytest
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ec
 
 class TestException:
 
     @pytest.mark.exceptions
-    def test_TC02_1_exception(self, driver):
+    def test_TC02_1_no_such_element_exception(self, driver):
         
         # Open page
         driver.get("https://practicetestautomation.com/practice-test-exceptions/")
@@ -12,6 +14,13 @@ class TestException:
         # click Add btn
         btn_add = driver.find_element(By.XPATH, '//button[@id="add_btn"]')
         btn_add.click()
+
+        # EXPLICIT WAIT
+        # create a new instance of the WebDriverWait
+        wait = WebDriverWait(driver, 10)
+
+        # wait for the element
+        wait.until(ec.presence_of_element_located((By.XPATH, '//div[@id="row2"]//following::input')))
 
         # Verify Row 2 input field is displayed
         input_row_2 = driver.find_element(By.XPATH, '//div[@id="row2"]//following::input')
