@@ -20,6 +20,7 @@ class TestException:
         wait = WebDriverWait(driver, 10)
 
         # wait for the element
+        # and return the locator to the variable
         input_row_2 = wait.until(ec.presence_of_element_located((By.XPATH, '//div[@id="row2"]//following::input')))
 
         # Verify Row 2 input field is displayed
