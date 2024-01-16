@@ -20,8 +20,11 @@ class TestException:
         wait = WebDriverWait(driver, 10)
 
         # wait for the element
-        wait.until(ec.presence_of_element_located((By.XPATH, '//div[@id="row2"]//following::input')))
+        input_row_2 = wait.until(ec.presence_of_element_located((By.XPATH, '//div[@id="row2"]//following::input')))
 
         # Verify Row 2 input field is displayed
-        input_row_2 = driver.find_element(By.XPATH, '//div[@id="row2"]//following::input')
+        
+        # we don´t need the find_element anymore -> the wait already uses the find_element
+        #input_row_2 = driver.find_element(By.XPATH, '//div[@id="row2"]//following::input')
+        
         assert input_row_2.is_displayed(), 'Row 2 is not displayed'
