@@ -70,8 +70,14 @@ class TestException:
         btn_edit = driver.find_element(By.XPATH, '//button[@id="edit_btn"]')
         btn_edit.click()
 
-        # Clear the text in the first input field
+        # Before Clear the text in the first input field
         input_row_1 = driver.find_element(By.XPATH, '//div[@id="row1"]//following::input')
+
+        # Adding a wait for the element to be clickable
+        wait = WebDriverWait(driver, 10)
+        wait.until(ec.element_to_be_clickable(input_row_1))
+
+        # Clear the text in the first input field
         input_row_1.clear()
 
         # Type text into the input field
