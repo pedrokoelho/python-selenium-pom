@@ -50,5 +50,11 @@ class TestException:
         input_row_2.send_keys('Teste')
 
         # Click Save button using locator By.name(“Save”)
-        btn_save = driver.find_element(By.NAME, "Save")
+        btn_save = driver.find_element(By.XPATH, '//div[@id="row2"]//button[@id="save_btn"]')
         btn_save.click()
+
+        # Verify saved text
+        confirmation_banner = driver.find_element(By.XPATH, '//div[@id="confirmation"]')
+        captured_message_text = confirmation_banner.text
+
+        assert captured_message_text == 'Row 2 was saved', 'Text captured does not macth expected text'
