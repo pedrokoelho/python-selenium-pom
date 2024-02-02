@@ -31,7 +31,6 @@ class TestException:
         assert input_row_2_element.is_displayed(), 'Row 2 is not displayed'
 
     @pytest.mark.exceptions
-    @pytest.mark.debug
     def test_TC02_2_element_not_interactable_exception(self, driver):
 
         # Open page
@@ -58,3 +57,27 @@ class TestException:
         captured_message_text = confirmation_banner.text
 
         assert captured_message_text == 'Row 2 was saved', 'Text captured does not macth expected text'
+
+
+    @pytest.mark.exceptions
+    @pytest.mark.debug
+    def test_TC02_3_invalid_element_state_exception(self, driver):
+
+        # Open page
+        driver.get('https://practicetestautomation.com/practice-test-exceptions/')
+
+        # Click Edit button
+        btn_edit = driver.find_element(By.XPATH, '//button[@id="edit_btn"]')
+        btn_edit.click()
+
+        # Clear the text in the first input field
+        input_row_1 = driver.find_element(By.XPATH, '//div[@id="row1"]//following::input')
+        input_row_1.clear()
+
+        # Type text into the input field
+        input_row_1.send_keys('Test case 3: InvalidElementStateException')
+        
+        # Verify text changed
+        # in this case is an input field - we can't use text - we have to get the atribute value
+        captured_text = input_row_1.get_attribute('value')
+        assert captured_text == 'Test case 3: InvalidElementStateException', 'Text captured > ' + captured_text + ' does not macth expected text'
