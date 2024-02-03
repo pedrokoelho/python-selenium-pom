@@ -60,7 +60,6 @@ class TestException:
 
 
     @pytest.mark.exceptions
-    @pytest.mark.debug
     def test_TC02_3_invalid_element_state_exception(self, driver):
 
         # Open page
@@ -87,3 +86,22 @@ class TestException:
         # in this case is an input field - we can't use text - we have to get the atribute value
         captured_text = input_row_1.get_attribute('value')
         assert captured_text == 'Test case 3: InvalidElementStateException', 'Text captured > ' + captured_text + ' does not macth expected text'
+
+
+    @pytest.mark.exceptions
+    @pytest.mark.debug
+    def test_TC02_4_stale_element_reference_exception(self, driver):
+
+        # Open page
+        driver.get('https://practicetestautomation.com/practice-test-exceptions/')
+
+        # Find the instructions text element
+        txt_instructions = driver.find_element(By.XPATH, '//p[@id="instructions"]')
+
+        # click Add btn
+        btn_add = driver.find_element(By.XPATH, '//button[@id="add_btn"]')
+        btn_add.click()
+
+        # Verify instruction text element is no longer displayed
+        assert txt_instructions.is_displayed()
+
