@@ -112,3 +112,6 @@ class TestException:
         
         # assert not txt_instructions.is_displayed(), 'Instructions text element should not be displayed!'
 
+
+
+
