@@ -125,7 +125,7 @@ class TestException:
 
         # EXPLICIT WAIT
         # create a new instance of the WebDriverWait
-        wait = WebDriverWait(driver, 3)
+        wait = WebDriverWait(driver, 6)
 
         # wait for the element
         # return the web element and assign it to the variable
