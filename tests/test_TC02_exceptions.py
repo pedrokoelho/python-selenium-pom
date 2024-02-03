@@ -103,5 +103,12 @@ class TestException:
         btn_add.click()
 
         # Verify instruction text element is no longer displayed
-        assert txt_instructions.is_displayed()
+        wait = WebDriverWait(driver, 10)
+        assert wait.until(ec.invisibility_of_element_located((By.XPATH, '//p[@id="instructions"]')))
+        
+        # if we assert if is displayed we get an StaleElementReferenceException
+        # because the element is no longer on the DOM
+        # we have to use the above wait 
+        
+        # assert not txt_instructions.is_displayed(), 'instruction text element should not be displayed'
 
