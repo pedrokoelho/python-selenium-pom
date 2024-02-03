@@ -89,7 +89,6 @@ class TestException:
 
 
     @pytest.mark.exceptions
-    @pytest.mark.debug
     def test_TC02_4_stale_element_reference_exception(self, driver):
 
         # Open page
@@ -113,5 +112,24 @@ class TestException:
         # assert not txt_instructions.is_displayed(), 'Instructions text element should not be displayed!'
 
 
+    @pytest.mark.exceptions
+    @pytest.mark.debug
+    def test_TC02_5_timeout_exception(self, driver):
 
+        # Open page
+        driver.get('https://practicetestautomation.com/practice-test-exceptions/')
+
+        # click Add btn
+        btn_add = driver.find_element(By.XPATH, '//button[@id="add_btn"]')
+        btn_add.click()
+
+        # EXPLICIT WAIT
+        # create a new instance of the WebDriverWait
+        wait = WebDriverWait(driver, 3)
+
+        # wait for the element
+        # return the web element and assign it to the variable
+        input_row_2_element = wait.until(ec.visibility_of_element_located((By.XPATH, '//div[@id="row2"]//following::input')), 'Row 2 input field is not displayed')
+        
+        assert input_row_2_element.is_displayed(), 'Row 2 input field is not displayed'
 
