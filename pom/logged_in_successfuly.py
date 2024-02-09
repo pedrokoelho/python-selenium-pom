@@ -6,7 +6,7 @@ class LogedInSuccessfully:
     __url = 'https://practicetestautomation.com/logged-in-successfully/'
     
     # locators
-    __h1_tilte = (By.XPATH, '//h1[@class="post-title"]')
+    __h1_title = (By.XPATH, '//h1[@class="post-title"]')
     __btn_log_out = (By.XPATH, '//a[contains(text(), "Log out")]')
 
     
@@ -20,7 +20,7 @@ class LogedInSuccessfully:
     # so we can change it to be a property
     @property
     def current_url(self) -> str:
-        return self._driver.get(self.__url)
+        return self._driver.current_url
     
     # get expected url
     # this method does not execute any step - it just return a string
@@ -34,7 +34,7 @@ class LogedInSuccessfully:
     # so we can change it to be a property
     @property
     def title_text(self) -> str:
-        return self._driver.find_element(self.__h1_tilte).text
+        return self._driver.find_element(self.__h1_title).text
     
     # method to verify if logout btn is displayed
     def is_logout_btn_displayed(self) -> bool:

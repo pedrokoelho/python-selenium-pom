@@ -20,14 +20,23 @@ class LoginPage:
 
     # method to open the page
     def open(self):
+        # 1. navigate to page
         self._driver.get(self.__url)
 
     # method to login
-    def login(self, usernme: str, password: str):
+    def login(self, username: str, password: str):
+
+        # create an instance of WebDriverWait
         wait = WebDriverWait(self._driver, 5)
-        wait.until(ec.visibility_of_element_located(self.__txt_input_password))
-        self._driver.find_element(self.__txt_input_username).send_keys(usernme)
+
+        # 1. Type username into Username field
+        wait.until(ec.visibility_of_element_located(self.__txt_input_username))
+        self._driver.find_element(self.__txt_input_username).send_keys(username)
+
+        # 2. Type password into Password field
         wait.until(ec.visibility_of_element_located(self.__txt_input_password))
         self._driver.find_element(self.__txt_input_password).send_keys(password)
+
+        # 3. Click button
         wait.until(ec.element_to_be_clickable(self.__btn_sumbit))
-        self._driver.find_element(self.__btn_sumbit).click
+        self._driver.find_element(self.__btn_sumbit).click()
