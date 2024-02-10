@@ -13,7 +13,7 @@ class BasePage:
     
     # method to find the element
     def _find(self, locator: tuple) -> WebElement:
-        self._driver.find_element(*locator)
+        return self._driver.find_element(*locator)
 
     
     # method to type text
