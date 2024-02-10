@@ -1,8 +1,8 @@
 from selenium.webdriver.common.by import By
 from selenium import webdriver
-from pom.base_page import BasePage
+from page_objects.base_page import BasePage
 
-class LogedInSuccessfully(BasePage):
+class LogedInSuccessfullyPage(BasePage):
     
     __url = 'https://practicetestautomation.com/logged-in-successfully/'
     
