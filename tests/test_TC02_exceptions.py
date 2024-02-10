@@ -113,7 +113,6 @@ class TestException:
 
 
     @pytest.mark.exceptions
-    @pytest.mark.debug
     def test_TC02_5_timeout_exception(self, driver):
 
         # Open page

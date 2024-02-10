@@ -13,7 +13,7 @@ class LoginPage(BasePage):
     __txt_input_username = (By.NAME, 'username')
     __txt_input_password = (By.NAME, 'password')
     __btn_sumbit = (By.XPATH, '//button[@class="btn"]')
-    __banner_username_error = (By.XPATH, '//div[@id="error"]')
+    __banner_error = (By.XPATH, '//div[@id="error"]')
 
     # constructor
     def __init__(self, driver: webdriver):
@@ -32,3 +32,8 @@ class LoginPage(BasePage):
         super()._type(self.__txt_input_password, password)
         # 3. Click button
         super()._click(self.__btn_sumbit)
+
+
+    # method to get the error msg
+    def get_error_msg(self) -> str:
+        return super()._get_text(self.__banner_error, time = 3)
