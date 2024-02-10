@@ -45,3 +45,15 @@ class BasePage:
             return self._find(locator).is_displayed()
         except NoSuchElementException:
             return False
+
+
+    # method to open the page
+    def _open_url(self, url: str):
+        # 1. navigate to page
+        self._driver.get(url)
+
+
+    # method to get text
+    def _get_text(self, locator: tuple, time: int = 10) -> str:
+        self._wait_until_element_is_visible(locator, time)
+        return self._find(locator).text

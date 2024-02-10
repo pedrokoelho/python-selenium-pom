@@ -1,7 +1,8 @@
 from selenium.webdriver.common.by import By
 from selenium import webdriver
+from pom.base_page import BasePage
 
-class LogedInSuccessfully:
+class LogedInSuccessfully(BasePage):
     
     __url = 'https://practicetestautomation.com/logged-in-successfully/'
     
@@ -12,22 +13,18 @@ class LogedInSuccessfully:
     
     # constructor
     def __init__(self, driver: webdriver):
-        self._driver = driver
+        super().__init__(driver)
     
     # get expected url
-    # this method does not execute any step - it just return a string
-    # so we can change it to be a property
     @property
     def expected_url(self) -> str:
         return self.__url
     
     # get the title text
-    # this method does not execute any step - it just return a string
-    # so we can change it to be a property
     @property
     def title_text(self) -> str:
-        return self._driver.find_element(self.__h1_title).text
+        return super()._get_text(self.__h1_title)
     
     # method to verify if logout btn is displayed
     def is_logout_btn_displayed(self) -> bool:
-        return self._driver.find_element(self.__btn_log_out).is_displayed()
+        return super()._is_displayed(self.__btn_log_out)
