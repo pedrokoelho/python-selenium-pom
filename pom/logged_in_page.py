@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.remote.webdriver import WebDriver
+from selenium import webdriver
 
 class LogedInSuccessfully:
     
@@ -11,16 +11,8 @@ class LogedInSuccessfully:
 
     
     # constructor
-    def __init__(self, driver: WebDriver):
+    def __init__(self, driver: webdriver):
         self._driver = driver
-
-
-    # get current url
-    # this method does not execute any step - it just return a string
-    # so we can change it to be a property
-    @property
-    def current_url(self) -> str:
-        return self._driver.current_url
     
     # get expected url
     # this method does not execute any step - it just return a string

@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.remote.webdriver import WebDriver
+from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 
@@ -15,7 +15,7 @@ class LoginPage:
     __banner_username_error = (By.XPATH, '//div[@id="error"]')
 
     # constructor
-    def __init__(self, driver: WebDriver):
+    def __init__(self, driver: webdriver):
         self._driver = driver
 
     # method to open the page
