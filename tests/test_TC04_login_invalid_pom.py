@@ -8,7 +8,6 @@ class TestLoginInValidPom:
     @pytest.mark.login
     @pytest.mark.invalid
     @pytest.mark.pom
-    @pytest.mark.debug
     @pytest.mark.parametrize("username, password, expected_error_message",
                              [("incorrectUser", "Password123", "Your username is invalid!"),
                               ("student", "incorrectPassword", "Your password is invalid!")])
