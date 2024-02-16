@@ -29,6 +29,13 @@
 `pytest -m smoke`
 `pytest -m login`
 
+
+## Print the captured data on tests with marker
+
+`pytest -s -m smoke`
+`pytest -s -m login`
+
+
 ## Register the marks
 
 > create pytest.ini

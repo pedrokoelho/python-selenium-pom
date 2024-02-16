@@ -38,5 +38,18 @@ class ExceptionsPage(BasePage):
     # method to verify if Row 2 input field is displayed
     def _is_row2_displayed(self) -> bool:
         return super()._is_displayed(self.__input_row_2)
+    
 
+    # method add text in the row 2
+    def _save_text_on_row2(self, text: str):
+        super()._type(self.__input_row_2, text)
+        super()._click(self.__btn_save_row_2)
+        super()._wait_until_element_is_visible(self.__confirmation_banner)
+
+
+    # method to verify if the text on row 2 was saved
+    def _get_confirmation_message(self) -> str:
+        return super()._get_text(self.__confirmation_banner)
+
+        
     
