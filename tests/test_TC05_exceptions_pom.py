@@ -41,3 +41,18 @@ class TestException:
         
         print(f'Captured Text -> {exceptions_page._get_confirmation_message()}')
 
+    
+    @pytest.mark.exceptions
+    @pytest.mark.pom
+    @pytest.mark.debug
+    def test_TC02_3_invalid_element_state_exception(self, driver):
+
+        # instantiating ExceptionsPage and sending the fixture
+        exceptions_page = ExceptionsPage(driver)
+        
+        # using the page object methods
+        
+        # 1. Open page
+        exceptions_page._open()
+
+
