@@ -20,7 +20,6 @@ class TestException:
     
     @pytest.mark.exceptions
     @pytest.mark.pom
-    @pytest.mark.debug
     def test_TC05_2_element_not_interactable_exception(self, driver):
         
         # instantiating ExceptionsPage and sending the fixture
@@ -55,4 +54,9 @@ class TestException:
         # 1. Open page
         exceptions_page._open()
 
+        # 2. Clear input field
+        # 3. Type text into the input field
+        exceptions_page._edit_text_in_row_1_input('Francesinha')
 
+        # 4. Verify text changed
+        assert exceptions_page._get_confirmation_message() == 'Row 1 was saved', 'WARNING! Captured text does not match expected text!'

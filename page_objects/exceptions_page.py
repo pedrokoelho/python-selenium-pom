@@ -13,6 +13,7 @@ class ExceptionsPage(BasePage):
 
     # locators
     __btn_add = (By.XPATH, '//button[@id="add_btn"]')
+    __btn_edit_row_1 = (By.XPATH, '//button[@id="edit_btn"]')
     __btn_save_row_1 = (By.XPATH, '//div[@id="row1"]//button[@id="save_btn"]')
     __btn_save_row_2 = (By.XPATH, '//div[@id="row2"]//button[@id="save_btn"]')
     __input_row_1 = (By.XPATH, '//div[@id="row1"]//following::input')
@@ -51,5 +52,14 @@ class ExceptionsPage(BasePage):
     def _get_confirmation_message(self) -> str:
         return super()._get_text(self.__confirmation_banner)
 
-        
     
+    # method to edit the text on row 1
+    def _edit_text_in_row_1_input(self, text: str) -> str:
+        super()._click(self.__btn_edit_row_1)
+        super()._wait_until_element_is_clickable(self.__input_row_1)
+        super()._clear_text(self.__input_row_1)
+        super()._type(self.__input_row_1, text)
+        super()._click(self.__btn_save_row_1)
+        super()._wait_until_element_is_visible(self.__confirmation_banner)
+
+        
