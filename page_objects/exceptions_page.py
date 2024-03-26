@@ -19,6 +19,7 @@ class ExceptionsPage(BasePage):
     __input_row_1 = (By.XPATH, '//div[@id="row1"]//following::input')
     __input_row_2 = (By.XPATH, '//div[@id="row2"]//following::input')
     __confirmation_banner = (By.XPATH, '//div[@id="confirmation"]')
+    __txt_instructions = (By.XPATH, '//p[@id="instructions"]')
 
     # constructor
     def __init__(self, driver: webdriver):
@@ -62,4 +63,9 @@ class ExceptionsPage(BasePage):
         super()._click(self.__btn_save_row_1)
         super()._wait_until_element_is_visible(self.__confirmation_banner)
 
-        
+
+    # method to verify if the instructions are displayed
+    def _are_instructions_displayed(self) -> bool:
+        super()._is_displayed(self.__txt_instructions)
+
+

@@ -43,7 +43,6 @@ class TestException:
     
     @pytest.mark.exceptions
     @pytest.mark.pom
-    @pytest.mark.debug
     def test_TC02_3_invalid_element_state_exception(self, driver):
 
         # instantiating ExceptionsPage and sending the fixture
@@ -60,3 +59,23 @@ class TestException:
 
         # 4. Verify text changed
         assert exceptions_page._get_confirmation_message() == 'Row 1 was saved', 'WARNING! Captured text does not match expected text!'
+
+
+    @pytest.mark.exceptions
+    @pytest.mark.pom
+    @pytest.mark.debug
+    def test_TC02_4_stale_element_reference_exception(self, driver):
+
+        # instantiating ExceptionsPage and sending the fixture
+        exceptions_page = ExceptionsPage(driver)
+        
+        # using the page object methods
+        
+        # 1. Open page
+        exceptions_page._open()
+
+         # 2. click Add btn
+        exceptions_page._add_row2()
+
+        # 3. Verify instruction text element is no longer displayed
+        assert not exceptions_page._are_instructions_displayed(), 'Instructions text should not be displayed!'
