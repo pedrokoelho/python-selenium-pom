@@ -73,3 +73,6 @@
 
 > run the tests -> n=number_of_tests_to_run_in_parallel
 `pytest -n=2`
+
+> run the 5 exceptions tests in parallel
+`pyest -m exceptions -n=5`
