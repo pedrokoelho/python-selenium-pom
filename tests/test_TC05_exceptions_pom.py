@@ -63,7 +63,6 @@ class TestException:
 
     @pytest.mark.exceptions
     @pytest.mark.pom
-    @pytest.mark.debug
     def test_TC02_4_stale_element_reference_exception(self, driver):
 
         # instantiating ExceptionsPage and sending the fixture
@@ -79,3 +78,23 @@ class TestException:
 
         # 3. Verify instruction text element is no longer displayed
         assert not exceptions_page._are_instructions_displayed(), 'Instructions text should not be displayed!'
+
+
+    @pytest.mark.exceptions
+    @pytest.mark.pom
+    @pytest.mark.debug
+    def test_TC02_5_timeout_exception(self, driver):
+
+        # instantiating ExceptionsPage and sending the fixture
+        exceptions_page = ExceptionsPage(driver)
+        
+        # using the page object methods
+        
+        # 1. Open page
+        exceptions_page._open()
+
+        #Click Add button
+        exceptions_page._add_row2()
+
+        #Verify second input field is displayed
+        assert exceptions_page._is_row2_displayed(), 'Row 2 is not dispalyed'
